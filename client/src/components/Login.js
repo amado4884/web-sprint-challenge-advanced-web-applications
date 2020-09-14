@@ -1,12 +1,20 @@
-import React from "react";
-
-const Login = () => {
-  // make a post request to retrieve a token from the api
-  // when you have handled the token, navigate to the BubblePage route
+import React, { useState } from "react";
+import { useInput } from "../hooks/useInput";
+const Login = ({ logIn }) => {
+  const [username, setUsername, usernameChanges] = useInput("Lambda School");
+  const [password, setPassword, passwordChanges] = useInput("i<3Lambd4");
   return (
     <>
-      <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
+      <input value={username} placeholder="Username" onChange={usernameChanges} />
+      <input value={password} placeholder="Password" onChange={passwordChanges} />
+      <button
+        className="App-link"
+        onClick={() => {
+          logIn({ username, password });
+        }}
+      >
+        Log In
+      </button>
     </>
   );
 };
