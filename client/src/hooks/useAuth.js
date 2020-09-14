@@ -1,8 +1,8 @@
 import axios from "axios";
 import useLocalStorage from "./useLocalStorage";
 
-function useAuth(key, bearer = true) {
-  const [token, setToken, removeToken] = useLocalStorage(key, null);
+function useAuth(key, bearer = true, initalToken = null) {
+  const [token, setToken, removeToken] = useLocalStorage(key, initalToken);
 
   const config = {
     headers: {
